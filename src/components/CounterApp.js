@@ -1,28 +1,36 @@
 import React, { useState } from 'react'
+import Styles from './counterApp.module.css'
+import useCounter from '../Hooks/useCounter'
 
 const CounterApp = () => {
-    const [counter, setcounter] = useState({
-        counter1:0,
-        counter2:10,
-    })
-    const {counter1,counter2}=counter
-    const haddleAddCounter1=()=>{
-        setcounter({
-            ...counter,
-            counter1:counter1+1,
-        })
-    }
+    const initialCount=5
+    const {count,handleAdd,handleReset,handleSub}= useCounter(initialCount)
+   
     return (
-        <div>
-            <h2>{counter1}</h2>
-            <h2>{counter2}</h2>
+        <div className={Styles.counterApp}>
+           
+            <h2 className={Styles.firstCounter}>{count}</h2>
+            <h2 className={Styles.secondCounter}>{count}</h2>
 
             <button
-                className='btn btn-primary'
-                onClick={haddleAddCounter1}
+                className={Styles.btnAdd+' btn btn-primary'}
+                onClick={()=>{handleAdd()}}
             >
                 +1
             </button>
+            <button
+                className={Styles.btnReset +' btn btn-light'}
+                onClick={()=>{handleReset()}}
+            >
+                reset
+            </button>
+            <button
+                className={Styles.btnDec +' btn btn-danger'}
+                onClick={()=>{handleSub()}}
+            >
+                -1
+            </button>
+            
         </div>
     )
 }

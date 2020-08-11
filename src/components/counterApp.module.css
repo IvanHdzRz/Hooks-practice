@@ -1,0 +1,40 @@
+.counterApp{
+    width: 100vw;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3,5rem);
+    grid-template-rows: 5rem 5rem;
+    justify-content: center;
+}
+.firstCounter{
+    grid-column: 1 /2;
+    grid-row: 1 / 2;
+    color:red;
+    justify-self: flex-end;
+}
+.secondCounter{
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    color:blue;
+    justify-self: flex-start;
+}
+
+.btnAdd{
+    grid-column: 3/4;
+    grid-row: 2/3;
+    justify-self: flex-start;
+    align-self: flex-start;
+}
+.btnDec{
+    grid-column: 1/2;
+    grid-row: 2/3;
+    justify-self: flex-end;
+    align-self: flex-start;
+    
+}
+.btnReset{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    justify-self: center;
+    align-self: flex-start;
+}
