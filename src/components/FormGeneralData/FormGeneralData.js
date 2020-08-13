@@ -17,10 +17,7 @@ const FormGeneralData = () => {
         }})
     }
     useEffect(() => {
-        setformData({
-            ...formData,
-            passMatched:password2===password
-        })
+        setformData((prevState)=>({...prevState,passMatched:password===password2}))
     }, [password2,password])
     
     return (
