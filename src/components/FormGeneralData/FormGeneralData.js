@@ -1,24 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import useForm from '../../Hooks/useForm';
 import Styles from './FormGeneralData.module.css'
+
 const FormGeneralData = () => {
-    const [formData, setformData] = useState({
+    
+    const {formData,handleChange,setformData}=useForm({
         email:'',
         password:'',
         password2:'',
         passMatched:false
-    });
+    })
+
     const {email,password,password2,passMatched}=formData
     
-    const handleChange=({target})=>{
-        setformData((data)=>{
-            return{
-                ...data,
-                [target.name]:target.value
-        }})
-    }
+    
     useEffect(() => {
+        console.log('me ejecute alv')
         setformData((prevState)=>({...prevState,passMatched:password===password2}))
-    }, [password2,password])
+    }, [password2,password,setformData])
     
     return (
         <form className={Styles.GeneralData}> 
